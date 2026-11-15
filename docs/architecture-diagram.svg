@@ -1,0 +1,131 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 820" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+    <marker id="arrW" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#e2e8f0"/>
+    </marker>
+    <marker id="arrG" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#34d399"/>
+    </marker>
+    <marker id="arrP" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#c084fc"/>
+    </marker>
+    <marker id="arrY" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#fcd34d"/>
+    </marker>
+  </defs>
+
+  <rect width="1400" height="820" fill="url(#bg)"/>
+
+  <!-- Title -->
+  <text x="700" y="44" text-anchor="middle" font-size="28" font-weight="700" fill="#f8fafc">MultiSig Kerberos: Threshold Kerberos Authentication using Schnorr Multi-Signatures</text>
+  <text x="700" y="72" text-anchor="middle" font-size="15" fill="#94a3b8">No single authority can sign a valid ticket. At least two independent Schnorr signatures are required.</text>
+
+  <!-- Client -->
+  <rect x="550" y="95" width="300" height="120" rx="14" fill="#1d4ed8" stroke="#93c5fd" stroke-width="2"/>
+  <text x="700" y="130" text-anchor="middle" font-size="22" font-weight="700" fill="#fff">CLIENT</text>
+  <text x="700" y="158" text-anchor="middle" font-size="13" fill="#dbeafe">Queries all authorities in parallel</text>
+  <text x="700" y="178" text-anchor="middle" font-size="13" fill="#dbeafe">Verifies every (R_i, s_i)</text>
+  <text x="700" y="198" text-anchor="middle" font-size="13" fill="#dbeafe">Assembles the ticket from 2+ valid sigs</text>
+
+  <!-- AS cluster -->
+  <rect x="40" y="290" width="550" height="200" rx="16" fill="#0b3b2e" stroke="#34d399" stroke-width="2"/>
+  <text x="315" y="320" text-anchor="middle" font-size="17" font-weight="700" fill="#6ee7b7">PHASE 1 · Authentication Authorities (AS)</text>
+  <g font-size="14" fill="#fff" text-anchor="middle">
+    <rect x="52"  y="340" width="165" height="130" rx="10" fill="#059669"/>
+    <text x="134" y="372" font-weight="700" font-size="18">AS1</text>
+    <text x="134" y="396">port 9001</text>
+    <text x="134" y="424" font-size="12" fill="#d1fae5">key pair (x1, y1)</text>
+    <text x="134" y="444" font-size="12" fill="#d1fae5">signs the TGT</text>
+
+    <rect x="232" y="340" width="165" height="130" rx="10" fill="#059669"/>
+    <text x="314" y="372" font-weight="700" font-size="18">AS2</text>
+    <text x="314" y="396">port 9002</text>
+    <text x="314" y="424" font-size="12" fill="#d1fae5">key pair (x2, y2)</text>
+    <text x="314" y="444" font-size="12" fill="#d1fae5">signs the TGT</text>
+
+    <rect x="412" y="340" width="165" height="130" rx="10" fill="#059669"/>
+    <text x="494" y="372" font-weight="700" font-size="18">AS3</text>
+    <text x="494" y="396">port 9003</text>
+    <text x="494" y="424" font-size="12" fill="#d1fae5">key pair (x3, y3)</text>
+    <text x="494" y="444" font-size="12" fill="#d1fae5">signs the TGT</text>
+  </g>
+
+  <!-- TGS cluster -->
+  <rect x="810" y="290" width="550" height="200" rx="16" fill="#3b1d5a" stroke="#c084fc" stroke-width="2"/>
+  <text x="1085" y="320" text-anchor="middle" font-size="17" font-weight="700" fill="#d8b4fe">PHASE 2 · Ticket Granting Authorities (TGS)</text>
+  <g font-size="14" fill="#fff" text-anchor="middle">
+    <rect x="822" y="340" width="165" height="130" rx="10" fill="#7c3aed"/>
+    <text x="904" y="372" font-weight="700" font-size="18">TGS1</text>
+    <text x="904" y="396">port 9101</text>
+    <text x="904" y="424" font-size="12" fill="#ede9fe">key pair (x1, y1)</text>
+    <text x="904" y="444" font-size="12" fill="#ede9fe">verifies TGT, signs ticket</text>
+
+    <rect x="1002" y="340" width="165" height="130" rx="10" fill="#7c3aed"/>
+    <text x="1084" y="372" font-weight="700" font-size="18">TGS2</text>
+    <text x="1084" y="396">port 9102</text>
+    <text x="1084" y="424" font-size="12" fill="#ede9fe">key pair (x2, y2)</text>
+    <text x="1084" y="444" font-size="12" fill="#ede9fe">verifies TGT, signs ticket</text>
+
+    <rect x="1182" y="340" width="165" height="130" rx="10" fill="#7c3aed"/>
+    <text x="1264" y="372" font-weight="700" font-size="18">TGS3</text>
+    <text x="1264" y="396">port 9103</text>
+    <text x="1264" y="424" font-size="12" fill="#ede9fe">key pair (x3, y3)</text>
+    <text x="1264" y="444" font-size="12" fill="#ede9fe">verifies TGT, signs ticket</text>
+  </g>
+
+  <!-- Phase 1 arrows (client -> AS) -->
+  <path d="M550,135 H280 V290" stroke="#e2e8f0" stroke-width="2.5" fill="none" marker-end="url(#arrW)"/>
+  <text x="415" y="125" text-anchor="middle" font-size="14" font-weight="600" fill="#e2e8f0">1. AUTH_REQUEST</text>
+  <path d="M350,290 V190 H550" stroke="#34d399" stroke-width="2.5" stroke-dasharray="7 5" fill="none" marker-end="url(#arrG)"/>
+  <text x="365" y="212" font-size="13" fill="#6ee7b7">(R_i, s_i) + session key</text>
+
+  <!-- Phase 2 arrows (client -> TGS) -->
+  <path d="M850,135 H1120 V290" stroke="#e2e8f0" stroke-width="2.5" fill="none" marker-end="url(#arrW)"/>
+  <text x="985" y="125" text-anchor="middle" font-size="14" font-weight="600" fill="#e2e8f0">2. TGS_REQUEST + TGT</text>
+  <path d="M1050,290 V190 H850" stroke="#c084fc" stroke-width="2.5" stroke-dasharray="7 5" fill="none" marker-end="url(#arrP)"/>
+  <text x="868" y="212" font-size="13" fill="#d8b4fe">(R_i, s_i) over ticket</text>
+
+  <!-- Phase 3 arrow (client -> service) -->
+  <path d="M700,215 V560" stroke="#fcd34d" stroke-width="2.5" fill="none" marker-end="url(#arrY)"/>
+  <rect x="595" y="375" width="210" height="52" rx="8" fill="#1e293b" stroke="#fcd34d" stroke-width="1.2"/>
+  <text x="700" y="397" text-anchor="middle" font-size="14" font-weight="600" fill="#fde68a">3. SERVICE_REQUEST</text>
+  <text x="700" y="417" text-anchor="middle" font-size="13" fill="#fde68a">+ Service Ticket</text>
+
+  <!-- Service server -->
+  <rect x="500" y="560" width="400" height="120" rx="14" fill="#b45309" stroke="#fcd34d" stroke-width="2"/>
+  <text x="700" y="594" text-anchor="middle" font-size="22" font-weight="700" fill="#fff">SERVICE SERVER</text>
+  <text x="700" y="620" text-anchor="middle" font-size="13" fill="#fef3c7">port 9200 · file / print / email services</text>
+  <text x="700" y="642" text-anchor="middle" font-size="13" fill="#fef3c7">Decrypts the ticket (AES-256-CBC)</text>
+  <text x="700" y="662" text-anchor="middle" font-size="13" fill="#fef3c7">Needs 2+ valid Schnorr sigs · checks key version</text>
+
+  <!-- Schnorr box -->
+  <rect x="40" y="540" width="430" height="180" rx="14" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+  <text x="62" y="572" font-size="16" font-weight="700" fill="#f8fafc">Schnorr signature (authority i)</text>
+  <g font-size="14" fill="#cbd5e1" font-family="Consolas, Menlo, monospace">
+    <text x="62" y="604">k_i ← Z_q   (fresh OS-random nonce)</text>
+    <text x="62" y="630">R_i = g^k_i mod p</text>
+    <text x="62" y="656">e_i = H(m ‖ R_i ‖ ID_i)</text>
+    <text x="62" y="682">s_i = k_i + e_i·x_i mod q</text>
+    <text x="62" y="708" fill="#6ee7b7">verify: g^s_i ≡ R_i · y_i^e_i (mod p)</text>
+  </g>
+
+  <!-- Threat box -->
+  <rect x="930" y="540" width="430" height="180" rx="14" fill="#1e293b" stroke="#475569" stroke-width="1.5"/>
+  <text x="952" y="572" font-size="16" font-weight="700" fill="#f8fafc">Threat model: 1 of 3 may be malicious</text>
+  <g font-size="14" fill="#cbd5e1">
+    <text x="952" y="604">✔ 1 compromised authority → ticket rejected</text>
+    <text x="952" y="630">✔ 1 authority offline → other two still work</text>
+    <text x="952" y="656">✔ tampered payload → challenge e_i changes</text>
+    <text x="952" y="682">✔ outdated key version → rejected by service</text>
+    <text x="952" y="708" fill="#fca5a5">✘ 2 compromised authorities → security lost</text>
+  </g>
+
+  <!-- Footer -->
+  <rect x="40" y="740" width="1320" height="62" rx="12" fill="#0f172a" stroke="#334155"/>
+  <text x="700" y="766" text-anchor="middle" font-size="14" fill="#94a3b8">Primitives: Schnorr over 2048-bit MODP group (RFC 3526 #14) · SHA-256 · AES-256-CBC with manual PKCS#7 · OS secure RNG</text>
+  <text x="700" y="788" text-anchor="middle" font-size="14" fill="#94a3b8">Private keys never leave their node · public keys y1..y3 are known to clients and the service server</text>
+</svg>
